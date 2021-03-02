@@ -1,2 +1,3 @@
-###CryptoAlert###
-by MoeinDanA
+# CryptoAlert
+
+by **MoeinDanA**

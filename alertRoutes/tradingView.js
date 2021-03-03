@@ -1,4 +1,6 @@
 const express = require("express");
+const { createMessage } = require("../utils/create-message");
+const { groupSend } = require("../utils/send-sms");
 
 const router = express.Router();
 
@@ -6,9 +8,19 @@ router.post("/tradingview/alert", async (req, res) => {
   console.log({ req });
   let body = req.body;
   let { exchange, ticker, price, type } = body;
-  console.log({ exchange, ticker, price, type });
-  return true;
+  let message = createMessage({ exchange, ticker, price, type });
+  await groupSend(["09331554655", "09366032534", "09166454134"], message);
+  res.send("done");
 });
+
+// router.post("/tradingview/sms", async (req, res) => {
+//   await groupSend(
+//     ["09331554655", "09366032534"],
+//     "نماد BTCUSDT در صرافی Binance از قیمت 47300 بیشتر شد"
+//   );
+
+//   return;
+// });
 
 module.exports = router;
 

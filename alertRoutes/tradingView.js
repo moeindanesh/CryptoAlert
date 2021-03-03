@@ -13,15 +13,6 @@ router.post("/tradingview/alert", async (req, res) => {
   res.send("done");
 });
 
-// router.post("/tradingview/sms", async (req, res) => {
-//   await groupSend(
-//     ["09331554655", "09366032534"],
-//     "نماد BTCUSDT در صرافی Binance از قیمت 47300 بیشتر شد"
-//   );
-
-//   return;
-// });
-
 module.exports = router;
 
 //tradingview pattern

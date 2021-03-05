@@ -1,19 +1,28 @@
 const createMessage = ({ exchange, ticker, price, type }) => {
-  let description = "عبور کرد";
+  let verb = "عبور کرد";
 
   switch (type) {
     case "cross":
-      description = `عبور کرد`;
+      verb = `عبور کرد`;
       break;
     case "greater than":
-      description = `بیشتر شد`;
+      verb = `بیشتر شد`;
       break;
     case "lower than":
-      description = `کمتر شد`;
+      verb = `کمتر شد`;
+      break;
+    case "above":
+      verb = "بیشتر شد";
+      break;
+    case "below":
+      verb = "کمتر شد";
+      break;
+    default:
+      verb = "عبور کرد";
       break;
   }
 
-  return `نماد ${ticker} در صرافی ${exchange} از قیمت ${price} ${description}`;
+  return `نماد ${ticker} در صرافی ${exchange} از قیمت ${price} ${verb}`;
 };
 
 module.exports = {
